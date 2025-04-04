@@ -3,50 +3,33 @@
 import style from "./page.scss";
 import Header from "./Component/Header";
 import Button from "./Component/Button";
+import data from "./data.json";
 
-// import ButtonList from "./Component/ButtonList";
 import Item from "./Component/Item";
 import { useState } from "react";
 
 export default function Home() {
-  const data = {
-    Vegeatables: ["Carrot", "Cucumber"],
-    Fruits: [
-      "Apple",
-      "Banana",
-      "Pear",
-      "Watermelon",
-      "Grape",
-      "Strawberry",
-      "Mango",
-      "Blackberry",
-    ],
-    Spices: ["Salt", "Pepper", "Chilli", "Herbs", "Curry"],
-  };
-
-  const [clickedButton, setClickButton] = useState("Vegeatables");
+  const [clickedButton, setClickButton] = useState(Object.keys(data)[0]);
   const [shownData, setShownData] = useState(data[clickedButton]);
 
   function handleButtonOnClick(event) {
     // if click another button
-    if (event.target.innerText.split(" ")[1] !== clickedButton) {
-      // remove clicked
-      if (document.querySelector(".item-list li.clicked")) {
-        document
-          .querySelector(".item-list li.clicked")
-          .classList.remove("clicked");
+    if (!event.target.classList.contains("clicked")) {
+      // remove clicked item
+      let clickedItem = document.querySelector(".item-list li.clicked");
+      if (clickedItem) {
+        clickedItem.classList.remove("clicked");
       }
-      setClickButton(event.target.innerText.split(" ")[1]);
-      setShownData(data[event.target.innerText.split(" ")[1]]);
+      setClickButton(event.target.id);
+      setShownData(data[event.target.id]);
     }
   }
 
   function handleItemOnClick(event) {
-    // remove clicked
-    if (document.querySelector(".item-list li.clicked")) {
-      document
-        .querySelector(".item-list li.clicked")
-        .classList.remove("clicked");
+    // remove clicked item
+    let clickedItem = document.querySelector(".item-list li.clicked");
+    if (clickedItem) {
+      clickedItem.classList.remove("clicked");
     }
     event.target.classList.add("clicked");
   }
