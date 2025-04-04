@@ -1,0 +1,9 @@
+li {
+    border: 2px black solid;
+    background: lightgray;
+
+    &.clicked {
+
+        background-color: lightgreen;
+    }
+}

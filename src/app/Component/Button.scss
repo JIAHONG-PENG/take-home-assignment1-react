@@ -1,0 +1,11 @@
+.button {
+    min-width: 110px;
+    padding: 5px 10px 30px 0;
+    margin-right: 10px;
+    cursor: pointer;
+    background: lightgray;
+
+    &.clicked {
+        background-color: lightgreen;
+    }
+}

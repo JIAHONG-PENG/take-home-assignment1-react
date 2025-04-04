@@ -1,0 +1,32 @@
+.container {
+    // width: 300px;
+    width: fit-content; 
+    margin: auto;
+}
+
+.item-list-container {
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+    
+    .item-list {
+        padding: 10px;
+        list-style: none;
+        background: rgb(240, 239, 239);
+    }
+}
+
+
+.button-container {
+    background: rgb(240, 239, 239);
+    padding: 10px;
+    margin-top: 20px;
+    
+    .buttons {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        list-style: none;
+        /* justify-content: space-between; */
+    }
+}
